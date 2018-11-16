@@ -1,47 +1,54 @@
 import '../styles/index.scss';
-import { props, withComponent } from 'skatejs';
-import { wrap } from '@skatejs/renderer-react';
 import React from 'react';
+import { styles } from './styles.js';
+import { wrap } from '@skatejs/renderer-react';
+import { props, withComponent } from 'skatejs';
 
-class HelloReact extends React.Component {
+import Support from './components/support';
+
+class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { date: new Date() };
-  }
-
-  componentDidMount() {
-    this.timerID = setInterval(
-      () => this.tick(),
-      1000
-    );
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date()
-    });
   }
 
   render() {
+    console.log(this.props);
+    
     return (
-      <div>
-        <h1>Hello, {this.props.name}!</h1>
-        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
-      </div>
+      <React.Fragment>
+        <style>{styles}</style>
+        <header className="ts-headerbar">
+          <ul className="ts-headerbar-bars">
+            <li className="ts-headerbar-headerbar ts-toolbar ts-spirit ts-macro ts-hasleft ts-nosearch">
+              <menu className="ts-toolbar-menu ts-left">
+                <li className="ts-toolbar-item ts-toolbar-icon">
+                  <img src={this.props.icon} width="40" height="40"></img>
+                </li>
+                <li className="ts-toolbar-item ts-toolbar-title">
+                  <label>{this.props.title}</label>
+                </li>
+              </menu>
+              <Support {...this.props} />
+            </li>
+          </ul>
+        </header>
+      </React.Fragment>
     );
   }
 }
 
-class WrapReact extends withComponent(wrap(HelloReact)) {
+class TsUiHeader extends withComponent(wrap(Header)) {
   static get props() {
     return {
-      name: props.string
+      icon: props.string,
+      showSettingsBtn: props.boolean,
+      settingsLink: props.string,
+      showSupportBtn: props.boolean,
+      supportLink: props.string,
+      tabs: props.array,
+      title: props.string
     };
   }
 }
 
-customElements.define('wrap-react', WrapReact);
+customElements.define('tsui-header', TsUiHeader);

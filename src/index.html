@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>webpack starterkit</title>
+  <title>TSUI Header</title>
   <script>
     /**
       * @license
@@ -43,8 +43,31 @@
       Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement);
     })();
   </script>
+  <link rel="stylesheet" href="//d5wfroyti11sa.cloudfront.net/prod/client/ts-12.0.0-beta.0.min.css"/>
+  <script src="//d5wfroyti11sa.cloudfront.net/prod/client/ts-12.0.0-beta.0.min.js"></script>
+  <style>
+    .ts-app {
+      {# color: red; #}
+    }
+  </style>
 </head>
 <body>
-  <wrap-react name="World"></wrap-react>
+  <div data-ts="App">
+    <div data-ts="Main">
+      <div data-ts="Content">
+      <p class="ts-app">
+        <tsui-header
+          icon="//ui.tradeshift.com/v12/dist/assets/icon.svg"
+          show-settings-btn={false}
+          settings-link="https://go.tradeshift.com"
+          show-support-btn={true}
+          support-link="https://tradeshift.com"
+          title="Header | Settings and Support"
+        >
+        </tsui-header>
+      </p>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

@@ -30,6 +30,7 @@
     "@babel/preset-react": "^7.0.0",
     "@skatejs/renderer-react": "^0.3.1",
     "babel-loader": "^8.0.4",
+    "brfs": "^2.0.1",
     "clean-webpack-plugin": "^0.1.19",
     "copy-webpack-plugin": "^4.5.4",
     "css-loader": "^1.0.0",
