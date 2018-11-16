@@ -1,6 +1,6 @@
 {
   "name": "tsui-header-test",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "An implementation of a header component using SkateJS and React.",
   "scripts": {
     "build": "webpack --config webpack/webpack.config.prod.js  --colors",

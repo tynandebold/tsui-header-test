@@ -12,8 +12,6 @@ class Header extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    
     return (
       <React.Fragment>
         <style>{styles}</style>
